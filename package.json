@@ -1,0 +1,42 @@
+{
+  "name": "modusbox",
+  "version": "1.0.0",
+  "description": "rest service that returns stock ticker prices from the stock exchange",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --exit -r ts-node/register test/**/*.ts",
+    "bundle": "tsc -p tsconfig.json &&  NODE_ENV=prod  webpack-cli --env=prod --config webpack.config.js",
+    "serve.prod": "NODE_ENV=prod ./node_modules/.bin/nodemon --exec ./node_modules/.bin/ts-node -- app/index.ts",
+    "serve.dev": "NODE_ENV=dev ./node_modules/.bin/nodemon --exec ./node_modules/.bin/ts-node -- app/index.ts",
+    "start": "npm run bundle && npm run serve.prod"
+  },
+  "author": "Honey Peethambaran",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.0",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.0",
+    "koa-router": "^7.4.0",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/chai-http": "^4.2.0",
+    "@types/koa": "^2.0.48",
+    "@types/koa-bodyparser": "^4.2.2",
+    "@types/koa-logger": "^3.1.1",
+    "@types/koa-router": "^7.0.40",
+    "@types/mocha": "^5.2.6",
+    "@types/request": "^2.48.1",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.0",
+    "ts-node": "^8.1.0",
+    "tslint": "^5.16.0",
+    "typescript": "^3.4.5",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2"
+  }
+}

@@ -1,0 +1,101 @@
+{
+    "rules": {
+        "member-ordering": [
+            true,
+            {
+                "order": [
+                    "public-instance-field",
+                    "private-instance-field"
+                ]
+            }
+        ],
+        "no-any": true,
+        "no-empty-interface": true,
+        "no-magic-numbers": true,
+        "curly": true,
+        "no-conditional-assignment": true,
+        "no-console": [
+            false
+        ],
+        "no-construct": true,
+        "no-duplicate-variable": true,
+        "no-invalid-this": true,
+        "no-null-keyword": true,
+        "triple-equals": true,
+        "indent": [
+            true,
+            "spaces",
+            2
+        ],
+        "no-duplicate-imports": true,
+        "prefer-const": true,
+        "prefer-readonly": true,
+        "trailing-comma": [
+            true,
+            {
+                "multiline": "never",
+                "singleline": "never"
+            }
+        ],
+        "array-type": [
+            true,
+            "array"
+        ],
+        "arrow-parens": [
+            true,
+            "ban-single-arg-parens"
+        ],
+        "arrow-return-shorthand": true,
+        "class-name": true,
+        "comment-format": [
+            true,
+            "check-space",
+            "check-lowercase",
+            {
+                "ignore-words": [
+                    "TODO",
+                    "HACK"
+                ]
+            }
+        ],
+        "file-name-casing": [
+            true,
+            "kebab-case"
+        ],
+        "new-parens": true,
+        "no-consecutive-blank-lines": true,
+        "no-trailing-whitespace": true,
+        "no-unnecessary-initializer": true,
+        "object-literal-shorthand": true,
+        "one-variable-per-declaration": true,
+        "prefer-template": true,
+        "quotemark": [
+            true,
+            "single",
+            "avoid-escape"
+        ],
+        "interface-name": [
+            true,
+            "never-prefix"
+        ],
+        "import-spacing": true,
+        "semicolon": [
+            true,
+            "always"
+        ],
+        "max-line-length": [
+            true,
+            120
+        ],
+        "no-use-before-declare": true,
+        "object-literal-sort-keys": false,
+        "ordered-imports": false,
+        "variable-name": [
+            true,
+            "allow-pascal-case",
+            "ban-keywords",
+            "check-format"
+        ],
+        "no-string-literal": true
+    }
+}

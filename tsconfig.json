@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "target": "es2017",
+        "module": "commonjs",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "allowSyntheticDefaultImports": true,
+        "sourceMap": true,
+        "noEmit": false,
+        "noEmitHelpers": false,
+        "strictNullChecks": false,
+        "outDir": "dist",
+        "watch": false,
+        "skipLibCheck": true,
+        "removeComments": true
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "**/*.d.ts",
+        "test/**/*"
+    ]
+}
