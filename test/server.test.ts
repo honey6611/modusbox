@@ -11,9 +11,17 @@ const should = chai.should();
 chai.use(chaiHttp);
 
 describe('loading koa', function () {
-    it('responds to /', function (done) {
+    it('responds to /time-series-daily/', function (done) {
         chai.request(app)
-            .get('/')
+            .get('/time-series-daily/AAPL')
+            .end((err, res) => {
+                res.should.have.status(HTTPStatus.Ok);
+            });
+        done();
+    });
+    it('responds to /search/', function (done) {
+        chai.request(app)
+            .get('/search?keyword=microsoft')
             .end((err, res) => {
                 res.should.have.status(HTTPStatus.Ok);
             });

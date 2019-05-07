@@ -1,7 +1,7 @@
 import * as Koa from 'koa';
 import * as koaLogger from 'koa-logger';
 import * as bodyParser from 'koa-bodyparser';
-import Routes from './routes';
+import Routes from './routes/';
 
 class App {
     public server: Koa;

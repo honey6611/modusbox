@@ -5,7 +5,7 @@ export const serverConf = {
     host: '0.0.0.0',
     apikey: alphaAdvantageApiKey
 }
-//NPD3EQ1XOB1FLCYS
+
 export const HTTPStatus = {
     'BadRequest': 400,
     'Ok': 200,
