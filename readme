@@ -1,0 +1,51 @@
+
+Stock ticker api
+=========================
+
+To run the pass api key in environment variable
+API_KEY=xxxxx npm run start
+
+Build project:
+npm run bundle
+
+Run in production:
+API_KEY=<your api key> npm start
+
+
+Api uses https://www.alphavantage.co/ api for stock implementation
+
+Time series endpoint
+/time-series-daily/{symbol}
+
+ex:
+http://127.0.0.1:8081/time-series-daily/MSFT
+http://127.0.0.1:8081/time-series-daily/FB
+http://127.0.0.1:8081/time-series-daily/AAPL
+
+----------------------------------------------
+
+Search symbol endpoint
+http://127.0.0.1:8081/search?keyword={keyword}
+
+ex:
+http://127.0.0.1:8081/search?keyword=microsoft
+http://127.0.0.1:8081/search?keyword=facebook
+http://127.0.0.1:8081/search?keyword=apple
+
+
+Docker
+-------
+
+docker build -t <your username>/node-web-app .
+
+docker run -p 49160:8081 -d <your username>/node-web-app -e API_KEY=<your api key>
+
+If running via docker, in the above api url replace port 8081 by 49160
+ex:
+http://127.0.0.1:49160/time-series-daily/MSFT
+
+
+TODO
+------
+>> Secure API using passport/jwt etc.
+>> move config setting to env file or yaml

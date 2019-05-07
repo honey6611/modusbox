@@ -1,23 +1,31 @@
-import * as Router from 'koa-router';
 import * as Koa from 'koa';
-import { renderCtx } from './jsend';
+import { renderCtx } from '../jsend';
 import {
     asyncHttpRequest,
     HttpOptions,
     normalizeResponse
-} from './utils';
-import { serverConf, HTTPStatus } from './config/config';
+} from '../utils';
+import { serverConf, HTTPStatus } from '../config/config';
 
-const router = new Router();
-export default () => {
-    router
+export default router => {
+    return router
         .get(
-            `/`,
+            `/time-series-daily/:symbol`,
             async (ctx: Koa.Context, next: Function) => {
+                const symbol: string = ctx.params.symbol;
+                console.log(symbol)
+                if (!symbol) {
+                    renderCtx.response(
+                        ctx,
+                        HTTPStatus.BadRequest,
+                        'Bad Request'
+                    );
+                    return;
+                }
                 const Options: HttpOptions = {
                     method: 'get',
                     // tslint:disable-next-line: max-line-length
-                    url: `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=AAPL&apikey=${serverConf.apikey}`
+                    url: `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${symbol}&apikey=${serverConf.apikey}`
                 };
 
                 let timeSeriesResponse: Response;
@@ -26,32 +34,16 @@ export default () => {
 
                     renderCtx.response(
                         ctx,
-                        200,
+                        HTTPStatus.Ok,
                         normalizeResponse(timeSeriesResponse)
                     );
                 }
                 catch (err) {
-
                     renderCtx.response(
                         ctx,
-                        500,
+                        HTTPStatus.ServerError,
                         err
                     );
                 }
-            })
-        .get(
-            `/(.*)`,
-            async (ctx: Koa.Context, next: Function) => {
-                renderCtx.response(
-                    ctx,
-                    HTTPStatus.NotFound,
-                    {
-                        message: 'Request not found'
-                    }
-                );
-                await next();
             });
-
-    router.allowedMethods();
-    return router.middleware(); /**Return router */
 }
